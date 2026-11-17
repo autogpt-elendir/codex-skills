@@ -5,9 +5,15 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import tempfile
 import unittest
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "lumen_method.py"
+SCRIPT = (
+    Path(__file__).resolve().parents[1]
+    / "architecture-interieure-eclairage"
+    / "scripts"
+    / "lumen_method.py"
+)
 SPEC = importlib.util.spec_from_file_location("lumen_method", SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
@@ -124,12 +130,15 @@ class CliTests(unittest.TestCase):
         "0.8",
     ]
 
-    def run_cli(self, *args):
+    def run_cli(self, *args, cwd=None):
         return subprocess.run(
             [sys.executable, str(SCRIPT), *args],
             capture_output=True,
             text=True,
             check=False,
+            shell=False,
+            cwd=cwd,
+            timeout=10,
         )
 
     def test_help(self):
@@ -141,6 +150,15 @@ class CliTests(unittest.TestCase):
         result = self.run_cli(*self.args, "--target-lux", "200")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout)["minimum_fixture_count"], 5)
+
+    def test_cli_works_outside_the_repository(self):
+        with tempfile.TemporaryDirectory() as directory:
+            result = self.run_cli(*self.args, "--fixtures", "4", cwd=directory)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(
+                json.loads(result.stdout)["estimated_maintained_average_lux"], 192
+            )
+            self.assertEqual(list(Path(directory).iterdir()), [])
 
     def test_factors_are_required_without_defaults(self):
         result = self.run_cli(

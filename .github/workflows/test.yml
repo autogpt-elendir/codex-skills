@@ -21,6 +21,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Calculs et interface en ligne de commande
-        run: python -m unittest discover -s architecture-interieure-eclairage/tests -v
+        run: python -m unittest discover -s tests -v
       - name: Aide du calculateur
         run: python architecture-interieure-eclairage/scripts/lumen_method.py --help

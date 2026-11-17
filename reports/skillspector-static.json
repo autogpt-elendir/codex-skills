@@ -1,0 +1,44 @@
+{
+  "scanner": {
+    "name": "NVIDIA SkillSpector",
+    "version": "2.12.0",
+    "source_commit": "a09091e0ebf6c96ff327457529d7b0d372125884",
+    "source_url": "https://github.com/NVIDIA/skillspector/tree/a09091e0ebf6c96ff327457529d7b0d372125884"
+  },
+  "mode": "static --no-llm",
+  "target": {
+    "scope": "installable-skill",
+    "path": "architecture-interieure-eclairage",
+    "files_sha256": {
+      "architecture-interieure-eclairage/SKILL.md": "18c23c3039ff97c01afc311afdfecdce9b22fe7ba9ecdebe2e9562ebbb52a783",
+      "architecture-interieure-eclairage/agents/openai.yaml": "446635cdd1d49c3ab29daa7539eed212c57720fb0e59b41b558ec6a471f2e70f",
+      "architecture-interieure-eclairage/references/amenagement.md": "78c870c8a93faf064460317dc2236d4a03cf1779f9af1a2f5fb98d72dbeef673",
+      "architecture-interieure-eclairage/references/dossier-projet.md": "95295ff22f98ae92db44c3e9460e09f99581c47fb88a1f3c2da775701e7c55fd",
+      "architecture-interieure-eclairage/references/eclairage.md": "66b260b102c001ef14eb0202d6c0e67b7a475bbf0979e70e88aafa3510949af4",
+      "architecture-interieure-eclairage/references/sources.md": "818fd9cddbaf626b2d25a1898aef95a06553733c74e88c9438258c2d00c9aa62",
+      "architecture-interieure-eclairage/references/visuels.md": "39fcebad22cb95065d12266c1d29170f47b2b336a7a4226429de1505677baec1",
+      "architecture-interieure-eclairage/scripts/lumen_method.py": "5282355c43949616a66c1bd6fb128d3f9722502fd20da9ceefdf550aba308b5e"
+    },
+    "bundle_sha256": "fa6bcc38bfc66917e1eed1566745bb2318da2b71d59913a7fa30e1c38aaed4cb"
+  },
+  "execution_successful": true,
+  "exit_code": 0,
+  "risk_assessment": {
+    "score": 0,
+    "severity": "LOW",
+    "recommendation": "SAFE",
+    "max_issue_severity": "NONE"
+  },
+  "analysis_completeness": {
+    "status": "complete",
+    "is_complete": true,
+    "total_components": 8,
+    "scanned_components": 8,
+    "coverage_percent": 100.0,
+    "scope_exclusions": []
+  },
+  "issues": [],
+  "suppressed_count": 0,
+  "llm_calls": 0,
+  "report_kind": "Structured summary; original scanner JSON retained in the private audit record."
+}

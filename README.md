@@ -46,11 +46,17 @@ Pour évaluer une quantité existante, utiliser `--fixtures 4`. Les deux options
 Depuis la racine du dépôt :
 
 ```bash
-python3 -m unittest discover -s architecture-interieure-eclairage/tests -v
+python3 -m unittest discover -s tests -v
 python3 architecture-interieure-eclairage/scripts/lumen_method.py --help
 ```
 
+Le dossier installable `architecture-interieure-eclairage/` contient les instructions, les références et le calculateur autonome. Les tests sont conservés séparément dans `tests/` : ils chargent le calculateur local et lancent son interface en ligne de commande, uniquement pendant le développement ou la CI. Le calculateur peut être exécuté depuis un autre répertoire et n’écrit aucun fichier de résultat lui-même. Les métadonnées du skill ne préapprouvent aucun outil de l’agent.
+
 Une intégration GitHub Actions exécute les tests sur plusieurs versions de Python. Les tests vérifient les calculs et les entrées, pas une certification du projet d’éclairage.
+
+## Sécurité
+
+La [revue NVIDIA SkillSpector](reports/security-review.md) distingue le dossier installable des tests de développement. Le scan statique du skill donne **0/100, SAFE, 8 fichiers sur 8 inspectés**. Le scan séparé des tests conserve **trois alertes modérées, CAUTION**, expliquées dans le rapport. Aucun outil n’est préautorisé par les métadonnées du skill ; aucun appel LLM, exclusion ou suppression de constats n’a été utilisé pour ces scans.
 
 ## Sources et confidentialité
 

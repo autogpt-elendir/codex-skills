@@ -7,6 +7,14 @@ description: Préparer un aménagement intérieur et un éclairage à partir de 
 
 Proposer une implantation réalisable qui répond aux usages et au budget, en réutilisant l’existant. Adapter la profondeur du travail à la demande : un avis sur un plafonnier ne nécessite pas de refaire tout le projet.
 
+## Périmètre d’exécution
+
+Lire les documents fournis pour le projet et, si le choix d’un produit le demande, consulter ses sources publiques. Un montage photo utilise l’outil d’image choisi dans le cadre de cette demande.
+
+Le seul programme livré pour l’usage du skill est `scripts/lumen_method.py` : il reçoit des paramètres numériques et produit du JSON sur la sortie standard. Il ne demande ni clé, accès réseau, lecture de fichiers de profil, écriture de fichier ou lancement de commande. Son exécution reste soumise aux autorisations de l’agent hôte ; ce skill n’accorde aucune préautorisation d’outil.
+
+Les tests de développement sont conservés dans le dossier `tests/` à la racine du dépôt, hors du dossier installable. Ils servent aux mainteneurs et à la CI ; l’utilisation du skill ne nécessite pas de les lancer ni d’installer des dépendances.
+
 ## Partir des informations disponibles
 
 - Consulter les plans et relevés déjà fournis avant de redemander des dimensions. Une photo renseigne sur les obstacles et la disposition ; elle ne fournit pas une hauteur mesurée.

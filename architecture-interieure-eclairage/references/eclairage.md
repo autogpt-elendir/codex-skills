@@ -14,12 +14,12 @@ Pour une tâche, examiner la surface sur laquelle elle est réalisée, pas uniqu
 Pour une zone simple et un ensemble de luminaires identiques :
 
 ```text
-E_moyen_estimé = N × Φ_luminaire × UF × MF / A
-Φ_total_requis = E_cible × A / (UF × MF)
-N_minimum_arithmétique = plafond(E_cible × A / (Φ_luminaire × UF × MF))
+E_moyen_estimé = N × flux_luminaire × UF × MF / A
+flux_total_requis = E_cible × A / (UF × MF)
+N_minimum_arithmétique = plafond(E_cible × A / (flux_luminaire × UF × MF))
 ```
 
-`A` est la surface de la zone en m² ; `N` la quantité ; `Φ_luminaire` le flux émis par le luminaire complet au réglage considéré. `UF` représente la part utilisée sur la surface utile ; `MF` la conservation du flux utile dans le temps selon l’entretien et le vieillissement. Ce calcul suppose une zone alimentée par les sources considérées.
+`A` est la surface de la zone en m² ; `N` la quantité ; `flux_luminaire` le flux émis par le luminaire complet au réglage considéré. `UF` représente la part utilisée sur la surface utile ; `MF` la conservation du flux utile dans le temps selon l’entretien et le vieillissement. Ce calcul suppose une zone alimentée par les sources considérées.
 
 **Les deux facteurs sont au dénominateur dans le calcul du flux requis.** Avec des facteurs inférieurs à 1, les besoins augmentent. Ne pas réappliquer le rendement du luminaire si la fiche fournit déjà son flux de sortie. Un facteur majorant de dimensionnement parfois donné sous une valeur supérieure à 1 n’est pas MF ; préciser la convention au lieu de les intervertir.
 

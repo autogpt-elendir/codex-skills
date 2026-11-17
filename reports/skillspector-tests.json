@@ -1,0 +1,73 @@
+{
+  "scanner": {
+    "name": "NVIDIA SkillSpector",
+    "version": "2.12.0",
+    "source_commit": "a09091e0ebf6c96ff327457529d7b0d372125884",
+    "source_url": "https://github.com/NVIDIA/skillspector/tree/a09091e0ebf6c96ff327457529d7b0d372125884"
+  },
+  "mode": "static --no-llm",
+  "target": {
+    "scope": "development-tests",
+    "path": "tests/test_lumen_method.py",
+    "files_sha256": {
+      "tests/test_lumen_method.py": "e0964a92a4e145bd4ab9b369020a5aefc37308925b42409d1b9db5c3eb32f2dd"
+    }
+  },
+  "execution_successful": true,
+  "exit_code": 1,
+  "risk_assessment": {
+    "score": 23,
+    "severity": "MEDIUM",
+    "recommendation": "CAUTION",
+    "max_issue_severity": "MEDIUM"
+  },
+  "analysis_completeness": {
+    "status": "complete",
+    "is_complete": true,
+    "total_components": 1,
+    "scanned_components": 1,
+    "coverage_percent": 100.0,
+    "scope_exclusions": []
+  },
+  "issues": [
+    {
+      "rule": "AST3",
+      "severity": "MEDIUM",
+      "location": {
+        "file": "test_lumen_method.py",
+        "start_line": 18,
+        "end_line": 18,
+        "start_column": 9,
+        "end_column": 46
+      },
+      "evidence": "importlib.util.module_from_spec(SPEC)"
+    },
+    {
+      "rule": "AST3",
+      "severity": "MEDIUM",
+      "location": {
+        "file": "test_lumen_method.py",
+        "start_line": 19,
+        "end_line": 19,
+        "start_column": 0,
+        "end_column": 31
+      },
+      "evidence": "SPEC.loader.exec_module(MODULE)"
+    },
+    {
+      "rule": "AST4",
+      "severity": "MEDIUM",
+      "location": {
+        "file": "test_lumen_method.py",
+        "start_line": 134,
+        "end_line": 142,
+        "start_column": 15,
+        "end_column": 9
+      },
+      "evidence": "subprocess.run(\n            [sys.executable, str(SCRIPT), *args],\n            capture_output=True,\n            text=True,\n            check=False,\n            shell=False,\n            cwd=cwd,\n       "
+    }
+  ],
+  "suppressed_count": 0,
+  "llm_calls": 0,
+  "report_kind": "Structured summary; original scanner JSON retained in the private audit record."
+}
