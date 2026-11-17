@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architecture intérieure et éclairage"
+  short_description: "Aménager et éclairer une pièce à partir de mesures"
+  default_prompt: "Utilise $architecture-interieure-eclairage pour proposer un aménagement et un éclairage adaptés à cette pièce."
